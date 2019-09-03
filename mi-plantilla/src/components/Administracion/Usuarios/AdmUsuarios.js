@@ -5,6 +5,13 @@ import WrappedAgregarUsuario from './WrappedEditableTable';
 import MetodosAxios from '../../../requerimientos/MetodosAxios';
 import { Typography, Button, Modal, Form, Select, Input, Radio, Row, Col } from 'antd';
 
+import logo from '../../../img/logo.png';
+import instructor1 from '../../../img/instructors/ins1.jpg';
+import facebook from '../../../img/f-icons/facebook.png';
+import twitter from '../../../img/f-icons/twitter.png';
+import '../../../App.css';
+
+
 const { Title } = Typography;
 const { Option } = Select;
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
@@ -208,6 +215,129 @@ export default class AdmUsuarios extends React.Component {
             key={Math.random()}
           />
         }*/}
+
+
+
+
+         <section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 course_details_left">
+                    <div class="blog_right_sidebar">
+                        <div class="single_instructor">
+                            <div class="author">
+                            <img src={instructor1} alt="" />
+                            </div>
+                            <div class="author_decs">
+                                <h4>Tutor1</h4>
+                                <p class="profession">Licenciado de Edu.Básica</p>
+                                <p>Este es una descripción del perfil del profesor "tutor autorizado 1" encargado
+                                de tutorias de ciertos cursos, graduado de una notable institución con conocimientos avanzados de matemáticas, física y química.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <div class="col-lg-7 right-contents">
+                    <h3 class="title">Información básica</h3>
+                    <ul>
+                        <li>
+                            <a class="justify-content-between d-flex" >
+                                <p>Nombre</p>
+                
+                                 <div class="col-75">
+                                    <input type="text" id="fname" name="firstname" placeholder="Martin Dunn" />
+                                 </div>                            
+
+
+                           </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" >
+                                <p>Sexo</p>
+                                <div class="col-75">
+                                    <select id="genero" name="sexo">
+                                      <option value="Seleccione">Seleccione</option>
+                                      <option value="Masculino">Masculino</option>
+                                      <option value="femenino">Femenino</option>
+                                    </select>
+                                </div>
+
+
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex" >
+                                <p>Pais </p>
+                                <div class="col-75">
+                                    <select id="Pais" name="pais">
+                                      <option value="Seleccione">Seleccione</option>
+                                      <option value="Ecuador">Ecuador</option>
+                                      <option value="Venezuela">Venezuela</option>
+                                      <option value="Colombia">Colombia</option>
+                                      <option value="Chile">Chile</option>
+                                      <option value="Otros">Otros</option>
+                                    </select>
+                                </div>
+
+
+
+
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex">
+                                <p>Fecha de nacimiento </p>
+                                <div class="col-75">
+                                    <input type="text" id="fdate" name="nacimiento" placeholder="15/05/1970" />
+                                 </div>
+
+
+
+                                
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex">
+                                <p>Representado </p>
+                                <div class="col-75">
+                                    <input type="text" id="fnamer" name="representado" placeholder="Rose Dunn" />
+                                 </div>
+
+
+                                
+                            </a>
+                        </li>
+                        <li>
+                            <a class="justify-content-between d-flex">
+                                <p>Telefono </p>
+                                
+                                <div class="col-75">
+                                    <input type="text" id="ftelf" name="telefono" placeholder="0543436452" />
+                                 </div>
+
+
+                                
+                            </a>
+                        </li>
+                    </ul>
+                    <a id="submit" href="#" class="genric-btn success large" onclick="openAlert()">Guardar</a>
+                    <div class="alert">
+                      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                      <strong>Realizado!</strong> Su información se ha actualizado correctamente.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+
+
+
+
       </div>
     );
   }

@@ -113,10 +113,17 @@ class LayoutPage extends React.Component {
                   title={
                     <span>
                       <Icon type="pie-chart" />
-                      <Link to="/administracion/inicio/"><span>Inicio</span></Link>
+                      <span>Inicio</span>
                     </span>
                   }
                 >
+
+                <Menu.Item
+                    key="administracion-feed"
+                  >
+                    <span>Feed</span>
+                    <Link to="/administracion/inicio/" />
+                </Menu.Item>
                   
                 </SubMenu>
 
