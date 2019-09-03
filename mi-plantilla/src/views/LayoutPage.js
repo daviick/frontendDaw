@@ -34,18 +34,12 @@ import Organizacion from "../components/Organizacion/Organizacion";
 import Suscripcion from "../components/Suscripcion/Suscripcion";
 import Factura from "../components/Factura/Factura";
 
+
+import TutoresDisponibles from '../components/Representante/TutoresDisponibles';
+
 import facebook from '../img/f-icons/facebook.png';
 import twitter from '../img/f-icons/twitter.png';
 import '../App.css';
-
-
-
-
-
-
-
-
-
 // FIN VISTAS OPERACIONES
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -81,7 +75,7 @@ class LayoutPage extends React.Component {
     }
   };
   componentDidMount() {
-    document.title = "Operaciones"
+    document.title = "URMentoring"
   }
 
   render() {
@@ -161,8 +155,8 @@ class LayoutPage extends React.Component {
                   <Menu.Item
                     key="tareas-mistareas"
                   >
-                    <span>Planificar Tutoria</span>
-                    <Link to="/administracion/tareas/" />
+                    <span>Tutores Disponibles</span>
+                    <Link to="/administracion/tutores-disponibles/" />
                   </Menu.Item>
                   <Menu.Item
                     key="tareas-asignar-tarea"
@@ -229,8 +223,7 @@ class LayoutPage extends React.Component {
 
               <div style={{ background: '#fff', padding: 24, minHeight: '100%' }}>
                 <Route path={`${this.props.match.path}/usuarios/`} exact component={AdmUsuarios} />
-                <Route path={`${this.props.match.path}/departamentos/`} exact component={AdmDepartamentos} />
-                <Route path={`${this.props.match.path}/tareas/`} exact component={AdmTareas} />
+                <Route path={`${this.props.match.path}/departamentos/`} exact component={AdmDepartamentos} />                
                 <Route path={`${this.props.match.path}/asignar-tarea/`} exact component={WrappedAsignarTarea} />
                 <Route path={`${this.props.match.path}/estado-tarea/`} exact component={EstadoTarea} />
                 <Route path={`${this.props.match.path}/reportes/`} exact component={WrappedActividades} />
@@ -240,6 +233,9 @@ class LayoutPage extends React.Component {
                 <Route path={`${this.props.match.path}/organizacion/`} component={Organizacion} />
                 <Route path={`${this.props.match.path}/suscripcion/`} component={Suscripcion} />
                 <Route path={`${this.props.match.path}/factura/`} component={Factura} />
+
+
+                <Route path={`${this.props.match.path}/tutores-disponibles/`} exact component={TutoresDisponibles} />
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>

@@ -118,6 +118,10 @@ class Login extends React.Component {
                             <Route path="/olvido-contrasena" component={AdmUsuarios} />
                             <a href="/olvido-contrasena"><Text style={{textAlign: 'center'}}>¿Olvidó su contraseña?</Text></a>
                         </Col>
+                        <Col sm={11} md={11} lg={11}>
+                            <Route path="/olvido-contrasena" component={AdmUsuarios} />
+                            <a href="/olvido-contrasena"><Text style={{textAlign: 'center'}}>¿No tienes cuenta? Registrate</Text></a>
+                        </Col>
                     </Row>
                 </LayoutLoginPage>
             </Router>
