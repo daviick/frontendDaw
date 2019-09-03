@@ -4,6 +4,14 @@ import WrappedEditableTable from './WrappedEditableTable';
 import WrappedAgregarUsuario from './WrappedEditableTable';
 import MetodosAxios from '../../requerimientos/MetodosAxios';
 import { Typography, Button, Modal, Form, Select, Input, Radio, Row, Col, Checkbox, } from 'antd';
+import '../../App.css';
+import im1 from '../../img/blog/c1.jpg';
+import im2 from '../../img/blog/c4.jpg';
+import im3 from '../../img/blog/c5.jpg';
+                        import im4 from '../../img/blog/c2.jpg';
+                        import im5 from '../../img/blog/author.png';
+                        import im6 from '../../img/blog/c6.jpg';
+import im7 from '../../img/blog/c3.jpg';
 
 const { Title } = Typography;
 const { Option, OptGroup } = Select;
@@ -782,7 +790,7 @@ export default class AdmTareas extends React.Component {
     render() {
         return (
             <div>
-                <Title style={{ textAlign: 'center' }}>Mis Tareas</Title>
+                {/*<Title style={{ textAlign: 'center' }}>Mis Tareas</Title>
                 <Button type="primary" onClick={this.showModal}>
                     Nuevo Tarea
                 </Button>
@@ -826,7 +834,495 @@ export default class AdmTareas extends React.Component {
                     <WrappedEditableTable
                         key={Math.random()}
                     />
-                }
+                }*/}
+
+    <section class="course_details_area section_gap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 course_details_left">
+                    <h4 class="title">Nuestros tutores</h4>
+                    <div class="content">
+                        <aside class="single_sidebar_widget search_widget">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="¿Qué materia o tema deseas aprender?" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                            
+                        </aside>
+                        
+
+                        <div class="comments-area mb-30">
+                            <div class="comment-list">
+                                <div class="single-comment single-reviews justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb">
+                                            <img src={im1} width="85" height="85" alt="" />
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="desc">
+                                            <h5><a href="#">Emilly Blunt</a></h5>
+                                            <p class="comment">
+                                                Profesora de inglés
+                                            </p>
+                                            <p class="comment">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore.
+                                            </p>
+                                            <a class="genric-btn success medium" href="#" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Ver más</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                <div class="collapse" id="collapseExample">
+                                    <div class="card card-body mb-30 justify-content-between d-flex">
+                                        <div class="col-lg-12 right-contents">
+                                            
+                                            <div class="blog_right_sidebar">
+                                                <aside class="single_sidebar_widget author_widget">
+                                                    
+                                                    <h4 >Emilly Blunt</h4>
+                                                    <p>Soy nativa inglés bilingüe Español. La metodología de mis lecciones se centra en las cuatro áreas clave de escuchar, hablar, leer y escribir. Me concentro en la gramática y el vocabulario. Las lecciones son interactivas y requieren la participación de los estudiantes. Los métodos son con enlaces web, videos y la pizarra para contenido escrito. Durante las lecciones hacemos varios ejercicios de las áreas clave. Cada lección tiene un plan establecido para garantizar la mejora continua del idioma.</p>
+                                                    <a class="primary-btn"><i class="fa fa-envelope" aria-hidden="true"></i> Enviar mensaje</a>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget post_category_widget">
+                                                    <h4 class="widget_title">Enseña</h4>
+                                                    <ul class="list cat-list">
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Inglés británico</p>
+                                                                <p>Nivel básico</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Inglés avanzado</p>
+                                                                <p>Nivel avanzado</p>
+                                                            </a>
+                                                        </li>
+                                                        
+                                                    </ul>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget popular_post_widget">
+                                                    <h3 class="widget_title">Horarios disponibles</h3>
+                                                   
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <div class="comments-area">
+                                                    <h4 class="widget_title">Comentarios de alumnos</h4>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im2} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Lorena Landi</a></h5>
+                                                                    <p class="date">Janvier 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Excelente profesora!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im3} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Naath Rogers</a></h5>
+                                                                    <p class="date">March 24, 2019 at 0:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Excellent Teacher!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                   
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-list">
+                                <div class="single-comment single-reviews justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb">
+                                            <img src={im4} width="85" height="85" alt="" /> 
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h5><a href="#">Martín Dunn</a></h5>
+                                            <p class="comment">
+                                                Matemático
+                                            </p>
+                                            <p class="comment">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore.
+                                            </p>
+                                            <a class="genric-btn success medium" href="#" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample">Ver más</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="collapse" id="collapseExample1">
+                                    <div class="card card-body mb-30 justify-content-between d-flex">
+                                        <div class="col-lg-12 right-contents">
+                                            <h4 class="title">Perfil</h4>
+                                            <div class="blog_right_sidebar">
+                                                <aside class="single_sidebar_widget author_widget">
+                                                    <img class="author_img rounded-circle" src={im5} alt="" /> 
+                                                    <h4 >Martín Dunn</h4>
+                                                    <p>Hola, me llamo Martín y, aunque estudié ingeniería, siempre me he dedicado a la enseñanza en clases presenciales para alumnos de bachiller y universidad, actividad que me ha alegrado la vida además de darme dinero. Por eso estoy aquí, para clarificarte dudas puntuales, corregirte o resolverte problemas o dirigirte en el aprendizaje con lecturas recomendadas, apuntes propios o charlas online.</p>                                                     <a class="primary-btn">Solicitar clase</a>
+                                                    <a class="primary-btn"><i class="fa fa-envelope" aria-hidden="true"></i> Enviar mensaje</a>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget post_category_widget">
+                                                    <h4 class="widget_title">Enseña</h4>
+                                                    <ul class="list cat-list">
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Informática</p>
+                                                                <p>Nivel básico</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Matemáticas</p>
+                                                                <p>Nivel avanzado</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Francés</p>
+                                                                <p>Nivel medio</p>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget popular_post_widget">
+                                                    <h3 class="widget_title">Horarios disponibles</h3>
+                                                    
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <div class="comments-area">
+                                                    <h4 class="widget_title">Comentarios de alumnos</h4>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im2} alt="" /> 
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Maria Luna</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Excelente profesor!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im3} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Ina Hayes</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Gracias a usted aprobe mate!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                   
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-list">
+                                <div class="single-comment single-reviews justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb">
+                                            <img src={im6} width="85" height="85" alt="" />
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h5><a href="#">Elsie Cunningham</a></h5>
+                                            <p class="comment">
+                                                Profesora de física
+                                            </p>
+                                            <p class="comment">
+                                                Amo la física y mi pasión es transmitir mis conocimientos de manera didáctica y sencilla.
+                                            </p>
+                                            <a class="genric-btn success medium" href="#" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">Ver más</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="collapse" id="collapseExample2">
+                                    <div class="card card-body mb-30 justify-content-between d-flex">
+                                        <div class="col-lg-12 right-contents">
+                                            <h4 class="title">Perfil</h4>
+                                            <div class="blog_right_sidebar">
+                                                <aside class="single_sidebar_widget author_widget">
+                                                    <img class="author_img rounded-circle" src={im5} alt="" />
+                                                    <h4 >Martín Dunn</h4>
+                                                    <p>Hola, me llamo Martín y, aunque estudié ingeniería, siempre me he dedicado a la enseñanza en clases presenciales para alumnos de bachiller y universidad, actividad que me ha alegrado la vida además de darme dinero. Por eso estoy aquí, para clarificarte dudas puntuales, corregirte o resolverte problemas o dirigirte en el aprendizaje con lecturas recomendadas, apuntes propios o charlas online.</p> 
+                                                    <a class="primary-btn">Solicitar clase</a>
+                                                    <a class="primary-btn"><i class="fa fa-envelope" aria-hidden="true"></i> Enviar mensaje</a>
+                                                    <div class="br"></div>
+                                                <aside class="single_sidebar_widget post_category_widget">
+                                                    <h4 class="widget_title">Enseña</h4>
+                                                    <ul class="list cat-list">
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Informática</p>
+                                                                <p>Nivel básico</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Matemáticas</p>
+                                                                <p>Nivel avanzado</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Francés</p>
+                                                                <p>Nivel medio</p>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget popular_post_widget">
+                                                    <h3 class="widget_title">Horarios disponibles</h3>
+                                                   
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <div class="comments-area">
+                                                    <h4 class="widget_title">Comentarios de alumnos</h4>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im3}alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Maria Luna</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Excelente profesor!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im4} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Ina Hayes</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Gracias a usted aprobe mate!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div></aside>
+                                            </div>                   
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="comment-list">
+                                <div class="single-comment single-reviews justify-content-between d-flex">
+                                    <div class="user justify-content-between d-flex">
+                                        <div class="thumb">
+                                            <img src={im7} width="85" height="85" alt="" /> 
+                                            <div class="star">
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
+                                            </div>
+                                        </div>
+                                        <div class="desc">
+                                            <h5><a href="#">María Luna</a></h5>
+                                            <p class="comment">
+                                                Profesora de química
+                                            </p>
+                                            <p class="comment">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                                                eiusmod tempor incididunt ut labore et dolore.
+                                            </p>
+                                            <a class="genric-btn success medium" href="#" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false" aria-controls="collapseExample">Ver más</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="collapse" id="collapseExample3">
+                                    <div class="card card-body mb-30 justify-content-between d-flex">
+                                        <div class="col-lg-12 right-contents">
+                                            <h4 class="title">Perfil</h4>
+                                            <div class="blog_right_sidebar">
+                                                <aside class="single_sidebar_widget author_widget">
+                                                    <img class="author_img rounded-circle" src={im5} alt="" />
+                                                    <h4 >Martín Dunn</h4>
+                                                    <p>Hola, me llamo Martín y, aunque estudié ingeniería, siempre me he dedicado a la enseñanza en clases presenciales para alumnos de bachiller y universidad, actividad que me ha alegrado la vida además de darme dinero. Por eso estoy aquí, para clarificarte dudas puntuales, corregirte o resolverte problemas o dirigirte en el aprendizaje con lecturas recomendadas, apuntes propios o charlas online.</p> 
+
+                                                    <a class="primary-btn">Solicitar clase</a>
+                                                    <a class="primary-btn"><i class="fa fa-envelope" aria-hidden="true"></i> Enviar mensaje</a>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget post_category_widget">
+                                                    <h4 class="widget_title">Enseña</h4>
+                                                    <ul class="list cat-list">
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Informática</p>
+                                                                <p>Nivel básico</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Matemáticas</p>
+                                                                <p>Nivel avanzado</p>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" class="d-flex justify-content-between">
+                                                                <p>Francés</p>
+                                                                <p>Nivel medio</p>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <aside class="single_sidebar_widget popular_post_widget">
+                                                    <h3 class="widget_title">Horarios disponibles</h3>
+                                                    
+                                                    <div class="br"></div>
+                                                </aside>
+                                                <div class="comments-area">
+                                                    <h4 class="widget_title">Comentarios de alumnos</h4>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im2} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Maria Luna</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Excelente profesor!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-list">
+                                                        <div class="single-comment justify-content-between d-flex">
+                                                            <div class="user justify-content-between d-flex">
+                                                                <div class="thumb">
+                                                                    <img src={im3} alt="" />
+                                                                </div>
+                                                                <div class="desc">
+                                                                    <h5><a href="#">Ina Hayes</a></h5>
+                                                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                                                    <p class="comment">
+                                                                        Gracias a usted aprobe mate!
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="reply-btn">
+                                                                <a href="" class="btn-reply text-uppercase">reply</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                   
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
             </div>
         );
     }

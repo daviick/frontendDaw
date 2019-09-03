@@ -29,10 +29,10 @@ class AsignarTarea extends React.Component {
     }
 
     render() {
-        const { getFieldDecorator } = this.props.form;
+        {/*const { getFieldDecorator } = this.props.form;*/}
         return (
             <div>
-                <Title style={{ textAlign: 'center' }}>Asignar Tareas</Title>
+               {/* <Title style={{ textAlign: 'center' }}>Asignar Tareas</Title>
                 <Form layout="vertical" onSubmit={this.handleSubmit}>
                     <Row type="flex" justify="space-around">
                         <Col sm={24} md={10} lg={10}>
@@ -139,7 +139,112 @@ class AsignarTarea extends React.Component {
                     <Form.Item>
                         <Button type="primary" size="large" htmlType="submit">Asignar</Button>
                     </Form.Item>
-                </Form>
+                </Form>*/}
+                <section class="course_details_area section_gap">
+                    <div class="container">
+                        <div class="row">
+                                <div class="col-lg-8 course_details_left">
+                                    
+                                   <h4 class="title">Tutorías reservadas</h4>
+                                       
+                                    <ul>
+                                        <li>
+                                            <ul>
+                                                <li>
+                                                    <a class="justify-content-between d-flex" >
+                                                        <p>Nombre del tutor</p>
+                                                        <span class="or">Josué Sanchez</span>
+                                                    </a>
+                                                </li>
+                                            </ul> 
+                                   
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Materia </p>
+                                                <span>Inglés</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Día </p>
+                                                <span>15 de Julio</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Hora </p>
+                                                <span>3.00 pm - 4.00 pm</span>
+                                            </a>
+                                        </li>
+                                        <a href="#" class="primary-btn danger text-uppercase enroll">Cancelar</a>
+                                    </ul> 
+                                  
+                                    
+                                </div>
+
+                                <div class="col-lg-4 right-contents">
+                                    <h4 class="title">Tutorías pasadas</h4>
+                                    <ul>
+                                        <li>
+                                            <a class="justify-content-between d-flex" >
+                                                <p>Nombre del tutor</p>
+                                                <span class="or">Martín Dunn</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Materia </p>
+                                                <span>Matemáticas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Día </p>
+                                                <span>15 de Junio</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Hora </p>
+                                                <span>2.00 pm - 4.00 pm</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <h4 class="title">Tutorías canceladas</h4>
+                                    <ul>
+                                        <li>
+                                            <a class="justify-content-between d-flex" >
+                                                <p>Nombre del tutor</p>
+                                                <span class="or">Martín Dunn</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Materia </p>
+                                                <span>Matemáticas</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Día </p>
+                                                <span>15 de Junio</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="justify-content-between d-flex">
+                                                <p>Hora </p>
+                                                <span>2.00 pm - 4.00 pm</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
             </div>
         )
     }
