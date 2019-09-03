@@ -40,7 +40,7 @@ import '../App.css';
 
 
 
-
+import TutoresDisponibles from '../components/Representante/TutoresDisponibles';
 
 
 
@@ -161,8 +161,8 @@ class LayoutPage extends React.Component {
                   <Menu.Item
                     key="tareas-mistareas"
                   >
-                    <span>Planificar Tutoria</span>
-                    <Link to="/administracion/tareas/" />
+                    <span>Tutores Disponibles</span>
+                    <Link to="/administracion/tutores-disponibles/" />
                   </Menu.Item>
                   <Menu.Item
                     key="tareas-asignar-tarea"
@@ -240,6 +240,8 @@ class LayoutPage extends React.Component {
                 <Route path={`${this.props.match.path}/organizacion/`} component={Organizacion} />
                 <Route path={`${this.props.match.path}/suscripcion/`} component={Suscripcion} />
                 <Route path={`${this.props.match.path}/factura/`} component={Factura} />
+
+                <Route path={`${this.props.match.path}/tutores-disponibles/`} component={TutoresDisponibles} />
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>

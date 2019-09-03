@@ -69,11 +69,6 @@ export default class TutoresDisponibles extends React.Component {
               dataIndex: 'descripcion',
               key: 'descripcion',
               width: '50%',
-              render: (text, record) => {
-                return <Paragraph ellipsis>
-                  {record.descripcion}
-                </Paragraph>
-              }
             },
             {
               title: 'Calificación',
