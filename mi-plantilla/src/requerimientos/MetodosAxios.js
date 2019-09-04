@@ -20,4 +20,7 @@ export default class MetodosAxios {
   static editar_representante = representante => {
     return MetodosAxios.instanceAxios.put(`/representantes/create/${representante.id}`, representante);
   }
+  static editar_tutor = tutor => {
+    return MetodosAxios.instanceAxios.put(`/tutores/create/${tutor.id}`, tutor);
+  }
 }
