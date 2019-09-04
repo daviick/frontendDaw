@@ -17,8 +17,8 @@ const App = ({ history }) => {
         <Route path='/' component={LoginPage} exact />
         <Route path='/olvido-contrasena' component={WrappedOlvidoContrasena} />
         <Route path='/registro-usuario' component={WrappedRegistroUsuario} />
-        <Route path='/administracion' component={LayoutPage} />
-        <Route path='/superadmin' component={LayoutPage} />
+        <Route path='/tutor' component={LayoutPage} />
+        <Route path='/representante' component={LayoutPage} />
       </Switch>
     </Router>
   )

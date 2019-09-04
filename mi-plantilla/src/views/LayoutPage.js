@@ -19,22 +19,15 @@ import {
   Switch,
   NavLink,
 } from "react-router-dom";
-// INICIO VISTAS OPERACIONES
+// INICIO VISTAS URMENTORING
 import logo from '../img/logo.png'
 
 import facebook from '../img/f-icons/facebook.png';
 import twitter from '../img/f-icons/twitter.png';
 import '../App.css';
-
-
-
 import TutoresDisponibles from '../components/Representante/TutoresDisponibles';
-
-
-
-
-
-// FIN VISTAS OPERACIONES
+import WrappedPerfilRepresentante from '../components/Representante/WrappedPerfilRepresentante';
+// FIN VISTAS URMENTORING
 
 const { Header, Content, Footer, Sider } = Layout;
 const { Title } = Typography;
@@ -86,7 +79,7 @@ class LayoutPage extends React.Component {
               {/* <img src={logo} /> */}
             </div>
             {
-              this.props.match.path.includes('administracion') &&
+              this.props.match.path.includes('representante') &&
               <Menu
                 theme="dark"
                 mode="inline"
@@ -105,13 +98,18 @@ class LayoutPage extends React.Component {
                   }
                 >
                   <Menu.Item
-                    key="tutpres-disponibles"
+                    key="tutores-disponibles"
                   >
                     <span>Tutores Disponibles</span>
-                    <Link to="/administracion/tutores-disponibles/" />
+                    <Link to="/representante/tutores-disponibles/" />
+                  </Menu.Item>
+                  <Menu.Item
+                    key="perfil"
+                  >
+                    <span>Mi Perfil</span>
+                    <Link to="/representante/perfil/" />
                   </Menu.Item>
                 </SubMenu>
-                
               </Menu>
             }
           </Sider>
@@ -125,6 +123,7 @@ class LayoutPage extends React.Component {
 
               <div style={{ background: '#fff', padding: 24, minHeight: '100%' }}>
                 <Route path={`${this.props.match.path}/tutores-disponibles/`} component={TutoresDisponibles} />
+                <Route path={`${this.props.match.path}/perfil/`} component={WrappedPerfilRepresentante} />
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
