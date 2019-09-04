@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message, Row, Col, Typography } from 'antd';
+import { Form, Input, Button, message, Row, Col, Typography, Select, InputNumber } from 'antd';
 import { Radio } from 'antd';
 import { DatePicker } from 'antd';
 import moment from 'moment';
@@ -7,6 +7,7 @@ import MetodosAxios from '../../requerimientos/MetodosAxios';
 
 const dateFormat = 'YYYY/MM/DD';
 const { Text, Title } = Typography;
+const { Option } = Select;
 
 class PerfilTutor extends React.Component {
   constructor(props) {
@@ -15,13 +16,30 @@ class PerfilTutor extends React.Component {
       loading: false,
       usuario: undefined,
       habilitarCampos: false,
+      asignaturas: [],
+      formacion_tutor: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEditar = this.handleEditar.bind(this);
     this.handleCancelar = this.handleCancelar.bind(this);
   }
 
+  obtener_formacion_tutores = id_tutor => {
+    MetodosAxios.obtener_formacion_tutor(id_tutor).then(res => {
+      console.log(res);
+      this.setState({
+        formacion_tutor: res.data,
+      }, () => {
+        console.log('this.state.formacion_tutor', this.state.formacion_tutor)
+        this.inicializar_formulario(this.state.usuario[0])
+      })
+    }).catch(err => {
+      message.error('Error al cargar la Formacion del Tutor');
+    })
+  }
+
   inicializar_formulario = usuario => {
+    console.log(this.state.formacion_tutor)
     this.props.form.setFieldsValue({
       nombres: usuario.nombre,
       apellidos: usuario.apellido,
@@ -31,6 +49,8 @@ class PerfilTutor extends React.Component {
       ciudad: usuario.ciudad,
       fecha_nac: moment(usuario.fecha_nac),
       descripcion: usuario.presentacion,
+      nivel_estudios: this.state.formacion_tutor[0].nivel_estudios,
+      experiencia: this.state.formacion_tutor[0].experiencia,
     })
   }
 
@@ -39,12 +59,21 @@ class PerfilTutor extends React.Component {
       usuario: JSON.parse(localStorage.getItem('user')),
     }, () => {
       console.log('this.state.usuario', this.state.usuario)
-      this.inicializar_formulario(this.state.usuario[0])
+      this.obtener_formacion_tutores(this.state.usuario[0]._id)
     });
+  }
+
+  obtener_asignaturas = () => {
+    MetodosAxios.obtener_asignaturas().then(res => {
+      this.setState({ asignaturas: res.data });
+    }).catch(err => {
+      message.error('Error al cargar las asignaturas')
+    })
   }
 
   componentDidMount = () => {
     this.guardar_usuario();
+    this.obtener_asignaturas();
   }
 
   handleSubmit = e => {
@@ -53,6 +82,7 @@ class PerfilTutor extends React.Component {
       if (err)
         return;
       this.setState({ loading: true, habilitarCampos: true });
+      values.fecha_nac = values.fecha_nac.toISOString().substring(0, 10)
       console.log('Received values from', values);
       let usuario = {
         id: this.state.usuario[0]._id,
@@ -62,18 +92,20 @@ class PerfilTutor extends React.Component {
         sexo: values.sexo,
         telefono: values.telefono,
         ciudad: values.ciudad,
-        fecha_nac: values.fecha_nac.toISOString(),
-        descripcion: values.presentacion,
+        fecha_nac: values.fecha_nac,
+        presentacion: values.descripcion,
       }
       console.log('envio usuario', usuario);
       MetodosAxios.editar_tutor(usuario).then(res => {
         console.log(res)
+        this.setState({ habilitarCampos: false })
+        message.success('Tutor editado exitosamente');
+        localStorage.setItem('user', usuario);
       }).catch(err => {
         message.error('Error al editar tutor')
         console.log(err);
       })
-      // this.setState({ loading: false, habilitarCampos: false });
-      message.success('¡Felicidades! se ha creado tu cuenta satisfactoriamente. Hemos enviado un correo para notificar tu registro');
+      // this.setState({ loading: false, habilitarCampos: false });      
     });
   }
 
@@ -214,6 +246,112 @@ class PerfilTutor extends React.Component {
                   ]
                 })(
                   <Input readOnly={!this.state.habilitarCampos} />
+                )}
+              </Form.Item>
+            </Col>
+            <Col sm={24} md={10} lg={10}>
+              <Form.Item label="Nivel de Estudios">
+                {getFieldDecorator('nivel_estudios', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Por favor, seleccione el nivel de estudios'
+                    }
+                  ]
+                })(
+                  <Select
+                    disabled={!this.state.habilitarCampos}
+                  >
+                    <Option
+                      key="Grado en Educacion Primaria"
+                      value="Grado en Educacion Primaria"
+                    >
+                      Grado en Educacion Primaria
+                    </Option>
+                    <Option
+                      key="Tercer Nivel"
+                      value="Tercer Nivel"
+                    >
+                      Tercer Nivel
+                    </Option>
+                    <Option
+                      key="Máster-Postgrado"
+                      value="Máster-Postgrado"
+                    >
+                      Máster-Postgrado
+                    </Option>
+                    <Option
+                      key="Doctorado"
+                      value="Doctorado"
+                    >
+                      Doctorado
+                    </Option>
+                  </Select>
+                )}
+              </Form.Item>
+            </Col>
+            <Col sm={24} md={10} lg={10}>
+              <Form.Item label="Experiencia">
+                {getFieldDecorator('experiencia', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Por favor, ingrese sus años de experiencia'
+                    }
+                  ]
+                })(
+                  <InputNumber
+                    readOnly={!this.state.habilitarCampos}
+                  />
+                )}
+              </Form.Item>
+            </Col>
+            <Col sm={24} md={10} lg={10}>
+              <Form.Item label="Profesion">
+                {getFieldDecorator('profesion', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Por favor, seleccione su profesion'
+                    }
+                  ]
+                })(
+                  <Select
+                    disabled={!this.state.habilitarCampos}
+                  >
+
+                  </Select>
+                )}
+              </Form.Item>
+            </Col>
+            <Col sm={24} md={10} lg={10}>
+              <Form.Item label="Asignaturas">
+                {getFieldDecorator('asignaturas', {
+                  rules: [
+                    {
+                      required: true,
+                      message: 'Por favor, seleccione la(s) asignaturas'
+                    }
+                  ]
+                })(
+                  <Select
+                    disabled={!this.state.habilitarCampos}
+                  >
+                    {
+                      this.state.asignaturas &&
+                      this.state.asignaturas.map(asignatura => {
+                        // console.log(asignatura)
+                        return (
+                          <Option
+                            key={asignatura._id}
+                            value={asignatura._id}
+                          >
+                            {asignatura.nombre}
+                          </Option>
+                        )
+                      })
+                    }
+                  </Select>
                 )}
               </Form.Item>
             </Col>

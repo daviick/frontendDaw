@@ -53,6 +53,7 @@ class PerfilRepresentante extends React.Component {
         return;
       this.setState({ loading: true, habilitarCampos: true });
       console.log('Received values from', values);
+      values.fecha_nac =values.fecha_nac.toISOString().substring(0, 10)
       let usuario = {
         id: this.state.usuario[0]._id,
         nombre: values.nombres,
@@ -61,17 +62,18 @@ class PerfilRepresentante extends React.Component {
         sexo: values.sexo,
         telefono: values.telefono,
         ciudad: values.ciudad,
-        fecha_nac: values.fecha_nac.toISOString(),
+        fecha_nac: values.fecha_nac,
       }
       console.log('envio usuario', usuario);
       MetodosAxios.editar_representante(usuario).then(res => {
         console.log(res)
+        this.setState({ habilitarCampos: false })
+        message.success('Representante editado exitosamente');        
       }).catch(err => {
         message.error('Error al editar el Representante')
         console.log(err);
       })
-      // this.setState({ loading: false, habilitarCampos: false });
-      message.success('¡Felicidades! se ha creado tu cuenta satisfactoriamente. Hemos enviado un correo para notificar tu registro');
+      // this.setState({ loading: false, habilitarCampos: false });      
     });
   }
 

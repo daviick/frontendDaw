@@ -18,9 +18,15 @@ export default class MetodosAxios {
     return MetodosAxios.instanceAxios.get(`/asignaturas/${cedula}`);
   }
   static editar_representante = representante => {
-    return MetodosAxios.instanceAxios.put(`/representantes/create/${representante.id}`, representante);
+    return MetodosAxios.instanceAxios.put(`/representantes/${representante.id}`, representante);
   }
   static editar_tutor = tutor => {
-    return MetodosAxios.instanceAxios.put(`/tutores/create/${tutor.id}`, tutor);
+    return MetodosAxios.instanceAxios.put(`/tutores/${tutor.id}`, tutor);
+  }
+  static obtener_asignaturas = () => {
+    return MetodosAxios.instanceAxios.get(`/asignaturas/`);
+  }
+  static obtener_formacion_tutor = id_tutor => {
+    return MetodosAxios.instanceAxios.get(`/formaciontutores/${id_tutor}`);
   }
 }
