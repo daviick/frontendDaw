@@ -21,18 +21,6 @@ import {
 } from "react-router-dom";
 // INICIO VISTAS OPERACIONES
 import logo from '../img/logo.png'
-import AdmUsuarios from "../components/Administracion/Usuarios/AdmUsuarios";
-import AdmDepartamentos from "../components/Administracion/Departamentos/AdmDepartamentos";
-import AdmTareas from "../components/Tareas/AdmTareas";
-import WrappedAsignarTarea from "../components/Tareas/WrappedAsignarTarea";
-import EstadoTarea from "../components/Tareas/EstadoTarea";
-import WrappedActividades from "../components/Reporte/WrappedActividades";
-import WrappedDepartamentos from "../components/Reporte/WrappedDepartamentos";
-import WrappedOlvidoContrasena from "./WrappedOlvidoContrasena";
-import Planes from "../components/Planes/Planes";
-import Organizacion from "../components/Organizacion/Organizacion";
-import Suscripcion from "../components/Suscripcion/Suscripcion";
-import Factura from "../components/Factura/Factura";
 
 import facebook from '../img/f-icons/facebook.png';
 import twitter from '../img/f-icons/twitter.png';
@@ -53,11 +41,11 @@ const { Title } = Typography;
 const { SubMenu } = Menu;
 
 class LayoutPage extends React.Component {
-  rootSubmenuKeys_administracion = ['administracion', 'tareas', 'reportes', 'factura'];
+  rootSubmenuKeys_administracion = ['tutorias'];
   constructor(props) {
     super(props);
     this.state = {
-      openKeys_administracion: ['administracion'],
+      openKeys_administracion: ['tutorias'],
       collapsed: false,
     }
   }
@@ -102,55 +90,13 @@ class LayoutPage extends React.Component {
               <Menu
                 theme="dark"
                 mode="inline"
-                defaultSelectedKeys={["administracion-usuarios"]}
+                // defaultSelectedKeys={["administracion-usuarios"]}
                 // defaultOpenKeys={["administracion-usuarios"]}
                 openKeys={this.state.openKeys_administracion}
                 onOpenChange={this.onOpenChange_administracion}
               >
-
                 <SubMenu
-                  key="reportes"
-                  title={
-                    <span>
-                      <Icon type="pie-chart" />
-                      <span>Inicio</span>
-                    </span>
-                  }
-                >
-
-                <Menu.Item
-                    key="administracion-feed"
-                  >
-                    <span>Feed</span>
-                    <Link to="/administracion/inicio/" />
-                </Menu.Item>
-                  
-                </SubMenu>
-
-                <SubMenu
-                  key="administracion"
-                  title={
-                    <span>
-                      <Icon type="user" />
-                      <span>Perfil</span>
-                    </span>
-                  }
-                >
-                  <Menu.Item
-                    key="administracion-usuarios"
-                  >
-                    <span>Editar Perfil</span>
-                    <Link to="/administracion/usuarios/" />
-                  </Menu.Item>
-                  <Menu.Item
-                    key="administracion-departamentos"
-                  >
-                    <span>Cerrar Sesion</span>
-                    {/*<Link to="/administracion/departamentos/" />*/}
-                  </Menu.Item>
-                </SubMenu>
-                <SubMenu
-                  key="tareas"
+                  key="tutorias"
                   title={
                     <span>
                       <Icon type="appstore" />
@@ -159,63 +105,13 @@ class LayoutPage extends React.Component {
                   }
                 >
                   <Menu.Item
-                    key="tareas-mistareas"
+                    key="tutpres-disponibles"
                   >
                     <span>Tutores Disponibles</span>
                     <Link to="/administracion/tutores-disponibles/" />
                   </Menu.Item>
-                  <Menu.Item
-                    key="tareas-asignar-tarea"
-                  >
-                    <span>Seguimiento de Tutoria</span>
-                    <Link to="/administracion/asignar-tarea/" />
-                  </Menu.Item>
-                  <Menu.Item
-                    key="tareas-estado-tarea"
-                  >
-                    <span>Ver Tutores</span>
-                    <Link to="/administracion/estado-tarea/" />
-                  </Menu.Item>
                 </SubMenu>
                 
-              </Menu>
-            }
-            {
-              this.props.match.path.includes('superadmin') &&
-              <Menu
-                theme="dark"
-                mode="inline"
-                // defaultOpenKeys={['planes']}
-                // defaultSelectedKeys={['planes']}                
-              >
-                <Menu.Item
-                  key="planes"
-                >
-                  <Icon type="shop" />
-                  <span className="nav-text">Inicio</span>
-                  <Link to="/superadmin/planes/" />
-                </Menu.Item>
-                <Menu.Item
-                  key="organizacion"
-                >
-                  <Icon type="usergroup-delete" />
-                  <span className="nav-text">Perfil</span>
-                  <Link to="/superadmin/organizacion/" />
-                </Menu.Item>
-                <Menu.Item
-                  key="suscripcion"
-                >
-                  <Icon type="form" />
-                  <span className="nav-text">Citas</span>                  
-                  <Link to="/superadmin/suscripcion/" />
-                </Menu.Item>
-                <Menu.Item
-                  key="factura"
-                >
-                  <Icon type="file" />
-                  <span className="nav-text">Cerrar Sesion</span>
-                  <Link to="" />
-                </Menu.Item>
               </Menu>
             }
           </Sider>
@@ -228,19 +124,6 @@ class LayoutPage extends React.Component {
               </Breadcrumb> */}
 
               <div style={{ background: '#fff', padding: 24, minHeight: '100%' }}>
-                <Route path={`${this.props.match.path}/usuarios/`} exact component={AdmUsuarios} />
-                <Route path={`${this.props.match.path}/departamentos/`} exact component={AdmDepartamentos} />
-                <Route path={`${this.props.match.path}/tareas/`} exact component={AdmTareas} />
-                <Route path={`${this.props.match.path}/asignar-tarea/`} exact component={WrappedAsignarTarea} />
-                <Route path={`${this.props.match.path}/estado-tarea/`} exact component={EstadoTarea} />
-                <Route path={`${this.props.match.path}/reportes/`} exact component={WrappedActividades} />
-                <Route path={`${this.props.match.path}/reportes/departamentos`} exact component={WrappedDepartamentos} />
-
-                <Route path={`${this.props.match.path}/planes/`} component={Planes} />
-                <Route path={`${this.props.match.path}/organizacion/`} component={Organizacion} />
-                <Route path={`${this.props.match.path}/suscripcion/`} component={Suscripcion} />
-                <Route path={`${this.props.match.path}/factura/`} component={Factura} />
-
                 <Route path={`${this.props.match.path}/tutores-disponibles/`} component={TutoresDisponibles} />
               </div>
             </Content>

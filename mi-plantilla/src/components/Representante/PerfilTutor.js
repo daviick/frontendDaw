@@ -1,12 +1,18 @@
 import React from 'react';
-import { Typography, Rate, Col, Row } from 'antd';
+import { Typography, Rate, Col, Row, List } from 'antd';
 
 const { Text, Title, Paragraph } = Typography;
 
 export default class Perfiltutor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      materias: [
+          'Matematica',
+          'Fisica',
+          'Quimica',
+      ],
+    }
   }
   render() {
     return (
@@ -21,7 +27,14 @@ export default class Perfiltutor extends React.Component {
           language for background applications, is refined by Ant UED Team. Ant Design, a design
           language for background applications, is refined by Ant UED Team.
         </Paragraph>
-        <Title level={2}>Enseña</Title>        
+        <Title level={2} style={{ margin: '16px 0' }}>Enseña</Title>
+        <List
+          size="small"
+          bordered
+          dataSource={this.state.materias}
+          renderItem={item => <List.Item>{item}</List.Item>}
+        />
+        
       </div>
     )
   }

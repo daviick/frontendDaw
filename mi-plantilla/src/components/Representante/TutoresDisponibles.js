@@ -75,7 +75,7 @@ export default class TutoresDisponibles extends React.Component {
               dataIndex: 'calificacion',
               key: 'calificacion',
               render: (text, record) => {                
-                return <Rate defaultValue={record.rating}></Rate>
+                return <Rate defaultValue={record.rating} disabled></Rate>
               }
             }
           ]}

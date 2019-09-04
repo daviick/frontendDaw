@@ -12,8 +12,6 @@ import {
     Switch,
     NavLink,
 } from "react-router-dom";
-import AdmUsuarios from '../components/Administracion/Usuarios/AdmUsuarios';
-import WrappedOlvidoContrasena from './WrappedOlvidoContrasena';
 
 const { Text } = Typography;
 
