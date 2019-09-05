@@ -30,8 +30,8 @@ export default class HistoricoMaterias extends React.Component {
       res.data.map((registro, index) => {
         // console.log(registro);
         let materias = {
-          id: registro._id,
-          nombres: registro.nombre,
+          id: registro.id_asignatura,
+          nombres: registro.nombre_asignatura,
           
         }
         datos.push(materias)
@@ -66,18 +66,10 @@ export default class HistoricoMaterias extends React.Component {
               dataIndex: 'nombres',
               key: 'nombres',
             },
-            
-            {
-              title: 'Descripción',
-              dataIndex: 'descripcion',
-              key: 'descripcion',
-              // width: '50%',
-            },
-                        
           ]}
           dataSource={this.state.datos}
           loading={this.state.loading}
-          
+          bordered          
         />
       </div>
     )

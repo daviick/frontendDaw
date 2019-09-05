@@ -15,7 +15,7 @@ export default class MetodosAxios {
     return MetodosAxios.instanceAxios.get(`/representantes/${correo}`);
   }
   static obtener_materias = cedula => {
-    return MetodosAxios.instanceAxios.get(`/asignaturas/${cedula}`);
+    return MetodosAxios.instanceAxios.get(`/historicos/${cedula}`);
   }
   static editar_representante = representante => {
     return MetodosAxios.instanceAxios.put(`/representantes/${representante.id}`, representante);
@@ -64,5 +64,11 @@ export default class MetodosAxios {
   }
   static enviar_correo = correo => {
     return MetodosAxios.instanceAxios.post(`/mail/`, correo);
+  }
+  static obtener_mejores = () => {
+    return MetodosAxios.instanceAxios.get(`/diezMejores/`);
+  }
+  static obtener_costo_promedio_materias = () => {
+    return MetodosAxios.instanceAxios.get(`/costoPromedioPorMaterias/`);
   }
 }
