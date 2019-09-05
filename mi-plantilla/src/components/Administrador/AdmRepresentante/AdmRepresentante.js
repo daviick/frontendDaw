@@ -36,7 +36,7 @@ const ModalRepresentantes = Form.create({ name: 'form_representantes' })(
         >
           <Form layout="vertical">
             <Row type="flex" justify="space-around">
-            <Col sm={24} md={10} lg={10}>
+              <Col sm={24} md={10} lg={10}>
                 <Form.Item label="Cedula">
                   {getFieldDecorator('cedula', {
                     rules: [
@@ -171,8 +171,44 @@ const ModalRepresentantes = Form.create({ name: 'form_representantes' })(
 export default class AdmRepresentante extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {
+      representantes: [],
+    }
   }
+  recargar_representantes = () => {
+    this.obtener_representantes()
+  }
+
+  obtener_representantes = () => {
+    let representantes = [];
+    MetodosAxios.obtener_representantes().then(res => {
+      res.data.map(registro => {
+        let representante = {
+          id: registro._id,
+          key: registro._id,
+          isEditing: false,
+          nombres: registro.nombre,
+          apellidos: registro.apellido,
+          correo: registro.correo,
+          sexo: registro.sexo,
+          telefono: registro.telefono,
+          ciudad: registro.ciudad,
+          fecha_nac: registro.fecha_nac,
+        }
+        representantes.push(representante);
+      });
+      this.setState({
+        representantes: representantes,
+      }, () => {
+        console.log('this.state.representantes', this.state.representantes);
+      });
+    });
+  }
+
+  componentDidMount = () => {
+    this.obtener_representantes();
+  }
+
   // INICIO funciones del Modal Agregar Suscripcion
   showModal = () => {
     this.setState({ visible: true });
@@ -196,26 +232,20 @@ export default class AdmRepresentante extends React.Component {
         nombre: values.nombres,
         apellido: values.apellidos,
         correo: values.correo,
-        sexo: values.sexo,        
+        sexo: values.sexo,
         telefono: values.telefono,
         ciudad: values.ciudad,
         fecha_nac: values.fecha_nac,
       }
       console.log('envio representante', representante)
-      // let suscripcion = {
-      //   client: values['organizacion'],
-      //   current_plan: values['plan']
-      // }
-      // console.log('envio suscripcion', suscripcion);
-      // MetodosAxios.crear_suscripcion(suscripcion).then(res => {
-      //   console.log(res);
-      //   if (res.status === 201) {
-      //     success('Suscripción creada exitosamente');
-      //   }
-      // }).catch(err => {
-      //   error('Error en la creación de la Suscripción');
-      //   console.log(err);
-      // });
+      MetodosAxios.crear_representante(representante).then(res => {
+        console.log(res);
+        message.success('Representante creado exitosamente');
+        this.obtener_representantes();
+      }).catch(err => {
+        message.error('Error en la creación del Representante');
+        console.log(err);
+      });
       form.resetFields();
       this.setState({ visible: false });
     });
@@ -239,6 +269,11 @@ export default class AdmRepresentante extends React.Component {
           onCreate={this.handleCreate}
         />
         <br />
+        <WrappedEditableTable
+          key={Math.random()}
+          representantes={this.state.representantes}
+          recargar_representantes={this.recargar_representantes}
+        />
       </div>
     )
   }

@@ -350,7 +350,7 @@ class PerfilTutor extends React.Component {
                       key="Máster/Postgrado"
                       value="Máster/Postgrado"
                     >
-                      Máster-Postgrado
+                      Máster/Postgrado
                     </Option>
                     <Option
                       key="Doctorado"
@@ -391,7 +391,18 @@ class PerfilTutor extends React.Component {
                   <Select
                     disabled={!this.state.habilitarCampos}
                   >
-
+                    <Option
+                      key="Ingenieria en Computacion"
+                      value="Ingenieria en Computacion"
+                    >
+                      Ingenieria en Computacion
+                    </Option>
+                    <Option
+                      key="Ingenieria Mecanica"
+                      value="Ingenieria Mecanica"
+                    >
+                      Ingenieria Mecanica
+                    </Option>
                   </Select>
                 )}
               </Form.Item>

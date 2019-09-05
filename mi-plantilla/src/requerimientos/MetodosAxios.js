@@ -32,8 +32,8 @@ export default class MetodosAxios {
   static obtener_asignaturas_tutor = id_tutor => {
     return MetodosAxios.instanceAxios.get(`/asignaturas/${id_tutor}`);
   }
-  static obtener_representante = id => {
-    return MetodosAxios.instanceAxios.get(`/representantes/${id}`);
+  static obtener_representante = correo => {
+    return MetodosAxios.instanceAxios.get(`/representantes/${correo}`);
   }
   static obtener_tutor = id => {
     return MetodosAxios.instanceAxios.get(`/tutores/${id}`);
@@ -43,5 +43,11 @@ export default class MetodosAxios {
   }
   static crear_representante = representante => {
     return MetodosAxios.instanceAxios.post(`/representantes/`, representante);
+  }
+  static obtener_representantes = () => {
+    return MetodosAxios.instanceAxios.get(`/representantes/`);
+  }
+  static eliminar_representante = id => {
+    return MetodosAxios.instanceAxios.delete(`/representantes/${id}`, { data: { } } );
   }
 }
