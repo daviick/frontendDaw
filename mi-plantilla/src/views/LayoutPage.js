@@ -31,7 +31,7 @@ import WrappedPerfilTutor from '../components/Tutor/WrappedPerfilTutor';
 import Historico from '../components/Tutor/HistoricoMaterias';
 import Graficos from '../components/Tutor/Graficos';
 import AdmRepresentante from '../components/Administrador/AdmRepresentante/AdmRepresentante';
-
+import Estadisticas from '../components/Administrador/Estadisticas/Estadisticas'
 
 // FIN VISTAS URMENTORING
 
@@ -189,8 +189,16 @@ class LayoutPage extends React.Component {
                   <Menu.Item
                     key="adm-representante"
                   >
+                    <Icon type="user" />
                     <span>Representantes</span>
                     <Link to="/administracion/representantes/" />
+                  </Menu.Item>
+                  <Menu.Item
+                    key="estadisticas"
+                  >
+                    <Icon type="pie-chart" />
+                    <span>Estadisticas</span>
+                    <Link to="/administracion/estadisticas/" />
                   </Menu.Item>
                 </SubMenu>
               </Menu>
@@ -210,6 +218,7 @@ class LayoutPage extends React.Component {
                 <Route path={`${this.props.match.path}/perfila/`} component={WrappedPerfilRepresentante} />
                 {/* RUTAS DEL ADMIN */}
                 <Route path={`${this.props.match.path}/representantes/`} component={AdmRepresentante} />
+                <Route path={`${this.props.match.path}/estadisticas/`} component={Estadisticas} />
                 {/* RUTAS DEL TUTOR */}
                 <Route path={`${this.props.match.path}/perfilb/`} component={WrappedPerfilTutor} />
                 <Route path={`${this.props.match.path}/hist/`} component={Historico} />

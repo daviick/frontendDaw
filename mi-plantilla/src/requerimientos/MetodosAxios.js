@@ -50,4 +50,16 @@ export default class MetodosAxios {
   static eliminar_representante = id => {
     return MetodosAxios.instanceAxios.delete(`/representantes/${id}`, { data: { } } );
   }
+  static obtener_tutores_menores_a_25 = () => {
+    return MetodosAxios.instanceAxios.get(`/tutoresMenoresa25/`);
+  }
+  static obtener_tutores_entre_25_y_30 = () => {
+    return MetodosAxios.instanceAxios.get(`/tutores25a30/`);
+  }
+  static obtener_tutores_entre_30_y_40 = () => {
+    return MetodosAxios.instanceAxios.get(`/tutores30a40/`);    
+  }
+  static obtener_tutores_mayores_a_40 = () => {
+    return MetodosAxios.instanceAxios.get(`/tutoresMayoresa40/`);
+  }
 }
