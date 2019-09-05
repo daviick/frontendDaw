@@ -77,7 +77,7 @@ class LayoutPage extends React.Component {
     }
   };
   componentDidMount() {
-    document.title = "Operaciones"
+    document.title = "URMentoring"
   }
 
   render() {

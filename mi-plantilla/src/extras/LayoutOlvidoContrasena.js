@@ -3,7 +3,7 @@ import logo from '../img/logo.png'
 
 class LayoutLoginPage extends Component {
     componentDidMount(){
-        document.title = "Operaciones"
+        document.title = "URMentoring"
     }
     render () {
         return (  
