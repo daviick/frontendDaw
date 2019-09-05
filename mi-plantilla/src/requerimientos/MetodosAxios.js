@@ -62,4 +62,7 @@ export default class MetodosAxios {
   static obtener_tutores_mayores_a_40 = () => {
     return MetodosAxios.instanceAxios.get(`/tutoresMayoresa40/`);
   }
+  static enviar_correo = correo => {
+    return MetodosAxios.instanceAxios.post(`/mail/`, correo);
+  }
 }
