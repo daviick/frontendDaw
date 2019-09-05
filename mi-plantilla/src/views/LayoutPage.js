@@ -30,6 +30,7 @@ import WrappedPerfilRepresentante from '../components/Representante/WrappedPerfi
 import WrappedPerfilTutor from '../components/Tutor/WrappedPerfilTutor';
 import Historico from '../components/Tutor/HistoricoMaterias';
 import Graficos from '../components/Tutor/Graficos';
+import AdmRepresentante from '../components/Administrador/AdmRepresentante/AdmRepresentante';
 
 
 // FIN VISTAS URMENTORING
@@ -170,6 +171,30 @@ class LayoutPage extends React.Component {
                 </SubMenu>
               </Menu>
             }
+            {
+              this.props.match.path.includes('administracion') &&
+              <Menu
+                theme="dark"
+                mode="inline"
+              >
+                <SubMenu
+                  key="administracion"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>Administracion</span>
+                    </span>
+                  }
+                >
+                  <Menu.Item
+                    key="adm-representante"
+                  >
+                    <span>Representantes</span>
+                    <Link to="/administracion/representantes/" />
+                  </Menu.Item>
+                </SubMenu>
+              </Menu>
+            }
           </Sider>
           <Layout>
             <Content style={{ background: 'white' }}>
@@ -183,13 +208,16 @@ class LayoutPage extends React.Component {
                 {/* RUTAS DEL REPRESENTANTE */}
                 <Route path={`${this.props.match.path}/profesores-disponibles/`} component={TutoresDisponibles} />
                 <Route path={`${this.props.match.path}/perfila/`} component={WrappedPerfilRepresentante} />
+                {/* RUTAS DEL ADMIN */}
+                <Route path={`${this.props.match.path}/representantes/`} component={AdmRepresentante} />
                 {/* RUTAS DEL TUTOR */}
                 <Route path={`${this.props.match.path}/perfilb/`} component={WrappedPerfilTutor} />
                 <Route path={`${this.props.match.path}/hist/`} component={Historico} />
                 <Route path={`${this.props.match.path}/graf/`} component={Graficos} />
+
               </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
+            {/* <Footer style={{ textAlign: 'center' }}>
 
               <div class="container text-center text-md-left">
                 <div class="row justify-content-center">
@@ -228,7 +256,7 @@ class LayoutPage extends React.Component {
               </div>
 
 
-            </Footer>
+            </Footer> */}
           </Layout>
         </Layout>
       </Router >

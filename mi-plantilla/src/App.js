@@ -19,6 +19,7 @@ const App = ({ history }) => {
         <Route path='/registro-usuario' component={WrappedRegistroUsuario} />
         <Route path='/tutor' component={LayoutPage} />
         <Route path='/representante' component={LayoutPage} />
+        <Route path='/administracion' component={LayoutPage} />
       </Switch>
     </Router>
   )

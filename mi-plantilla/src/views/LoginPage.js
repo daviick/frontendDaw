@@ -61,6 +61,10 @@ class Login extends React.Component {
               console.log('entra')
               RedireccionRol.redirectLogin(this.props.history, 2);
               localStorage.setItem('user', JSON.stringify(this.state.usuario));
+            } else if(correo==='admin') {
+              console.log('entra al menu administrador', true)
+              RedireccionRol.redirectLogin(this.props.history, 3)
+              // localStorage.setItem('user', JSON.stringify(this.state.usuario));                            
             } else {
               message.error('Lo sentimos, el usuario ingresado no se encuentra registrado')
               this.setState({ loadingSubmit: false })
