@@ -28,6 +28,10 @@ import '../App.css';
 import TutoresDisponibles from '../components/Representante/TutoresDisponibles';
 import WrappedPerfilRepresentante from '../components/Representante/WrappedPerfilRepresentante';
 import WrappedPerfilTutor from '../components/Tutor/WrappedPerfilTutor';
+import Historico from '../components/Tutor/HistoricoMaterias';
+import Graficos from '../components/Tutor/Graficos';
+
+
 // FIN VISTAS URMENTORING
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -151,6 +155,18 @@ class LayoutPage extends React.Component {
                     <span>Mi Perfil</span>
                     <Link to="/tutor/perfilb/" />
                   </Menu.Item>
+                  <Menu.Item
+                    key="Historico"
+                  >
+                    <span>Historico Materias</span>
+                    <Link to="/tutor/hist/" />
+                  </Menu.Item>
+                  <Menu.Item
+                    key="estadisticas"
+                  >
+                    <span>Estadísticas</span>
+                    <Link to="/tutor/graf/" />
+                  </Menu.Item>
                 </SubMenu>
               </Menu>
             }
@@ -169,6 +185,8 @@ class LayoutPage extends React.Component {
                 <Route path={`${this.props.match.path}/perfila/`} component={WrappedPerfilRepresentante} />
                 {/* RUTAS DEL TUTOR */}
                 <Route path={`${this.props.match.path}/perfilb/`} component={WrappedPerfilTutor} />
+                <Route path={`${this.props.match.path}/hist/`} component={Historico} />
+                <Route path={`${this.props.match.path}/graf/`} component={Graficos} />
               </div>
             </Content>
             <Footer style={{ textAlign: 'center' }}>

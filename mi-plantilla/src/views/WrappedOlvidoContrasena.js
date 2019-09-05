@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, message } from 'antd';
+import { Form, Input, Button, message, Card } from 'antd';
 import LayoutOlvidoContrasena from '../extras/LayoutOlvidoContrasena';
 
 class OlvidoContrasena extends React.Component {
@@ -25,7 +25,9 @@ class OlvidoContrasena extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
-            <LayoutOlvidoContrasena>
+            <div style={{ background: '#ECECEC', padding:'50px 480px 800px 490px' }}>
+            
+                <Card title="Recuperar contraseña" bordered={true} style={{ width: 400 }}>
                 <Form layout="vertical" onSubmit={this.handleSubmit}>
                     <Form.Item label="Correo Electronico">
                         {getFieldDecorator('correo', {
@@ -40,10 +42,12 @@ class OlvidoContrasena extends React.Component {
                         )}
                     </Form.Item>
                     <Form.Item>
-                        <Button type="primary" size="large" htmlType="submit" loading={this.state.loading}>Recuperar Contraseña</Button>
+                        <Button type="primary" size="large" htmlType="submit" loading={this.state.loading}>Enviar</Button>
                     </Form.Item>
                 </Form>
-            </LayoutOlvidoContrasena>
+                </Card>
+            
+            </div>
         );
     }
 }

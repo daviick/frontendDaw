@@ -4,7 +4,7 @@ import LayoutOlvidoContrasena from '../extras/LayoutOlvidoContrasena';
 import { Radio } from 'antd';
 import { DatePicker } from 'antd';
 import moment from 'moment';
-import logo from '../img/logo.png';
+import logo from '../img/about-img.png';
 
 
 const dateFormat = 'YYYY/MM/DD';
@@ -33,7 +33,7 @@ class RegistroUsuario extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <div style={{ background: '#ECECEC', padding: '30px', height: '980px' }}>
-        <Col sm={14} md={14} lg={14}>
+        <Col sm={12} md={12} lg={12}>
         <Card title="Registro de Usuario" bordered={false} style={{ width: 500, height: '980px' }}>
       
             <LayoutOlvidoContrasena>
@@ -179,7 +179,7 @@ class RegistroUsuario extends React.Component {
               </Form>
             </LayoutOlvidoContrasena>
           </Card></Col>
-          <img src={logo} alt=""></img>
+          <img src={logo} alt="" style = {{paddingTop: '200px'}}></img>
           
         </div>
     );
