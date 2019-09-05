@@ -29,4 +29,19 @@ export default class MetodosAxios {
   static obtener_formacion_tutor = id_tutor => {
     return MetodosAxios.instanceAxios.get(`/formaciontutores/${id_tutor}`);
   }
+  static obtener_asignaturas_tutor = id_tutor => {
+    return MetodosAxios.instanceAxios.get(`/asignaturas/${id_tutor}`);
+  }
+  static obtener_representante = id => {
+    return MetodosAxios.instanceAxios.get(`/representantes/${id}`);
+  }
+  static obtener_tutor = id => {
+    return MetodosAxios.instanceAxios.get(`/tutores/${id}`);
+  }
+  static editar_formacion_tutor = formacion_tutor => {
+    return MetodosAxios.instanceAxios.put(`/formaciontutores/${formacion_tutor.id_tutor}`, formacion_tutor);
+  }
+  static crear_representante = representante => {
+    return MetodosAxios.instanceAxios.post(`/representantes/`, representante);
+  }
 }

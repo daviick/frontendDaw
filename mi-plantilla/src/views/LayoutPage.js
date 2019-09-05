@@ -28,6 +28,7 @@ import '../App.css';
 import TutoresDisponibles from '../components/Representante/TutoresDisponibles';
 import WrappedPerfilRepresentante from '../components/Representante/WrappedPerfilRepresentante';
 import WrappedPerfilTutor from '../components/Tutor/WrappedPerfilTutor';
+import AdmRepresentante from '../components/Administrador/AdmRepresentante/AdmRepresentante';
 // FIN VISTAS URMENTORING
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -154,6 +155,30 @@ class LayoutPage extends React.Component {
                 </SubMenu>
               </Menu>
             }
+            {
+              this.props.match.path.includes('administracion') &&
+              <Menu
+                theme="dark"
+                mode="inline"
+              >
+                <SubMenu
+                  key="administracion"
+                  title={
+                    <span>
+                      <Icon type="user" />
+                      <span>Administracion</span>
+                    </span>
+                  }
+                >
+                  <Menu.Item
+                    key="adm-representante"
+                  >
+                    <span>Representantes</span>
+                    <Link to="/administracion/representantes/" />
+                  </Menu.Item>
+                </SubMenu>
+              </Menu>
+            }
           </Sider>
           <Layout>
             <Content style={{ background: 'white' }}>
@@ -169,9 +194,11 @@ class LayoutPage extends React.Component {
                 <Route path={`${this.props.match.path}/perfila/`} component={WrappedPerfilRepresentante} />
                 {/* RUTAS DEL TUTOR */}
                 <Route path={`${this.props.match.path}/perfilb/`} component={WrappedPerfilTutor} />
+                {/* RUTAS DEL ADMIN */}
+                <Route path={`${this.props.match.path}/representantes/`} component={AdmRepresentante} />
               </div>
             </Content>
-            <Footer style={{ textAlign: 'center' }}>
+            {/* <Footer style={{ textAlign: 'center' }}>
 
               <div class="container text-center text-md-left">
                 <div class="row justify-content-center">
@@ -210,7 +237,7 @@ class LayoutPage extends React.Component {
               </div>
 
 
-            </Footer>
+            </Footer> */}
           </Layout>
         </Layout>
       </Router >

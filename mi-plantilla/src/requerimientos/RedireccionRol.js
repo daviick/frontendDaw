@@ -10,7 +10,7 @@ export default class RedireccionRol {
         else if(perfil===2){
             history.push('/representante/perfila/');
         }else if(perfil===3){
-            history.push('/administracion/');
+            history.push('/administracion/representantes/');
         }
     }
 }

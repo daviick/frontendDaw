@@ -18,28 +18,60 @@ class PerfilTutor extends React.Component {
       habilitarCampos: false,
       asignaturas: [],
       formacion_tutor: [],
+      asignaturas_tutor: [],
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleEditar = this.handleEditar.bind(this);
     this.handleCancelar = this.handleCancelar.bind(this);
   }
 
-  obtener_formacion_tutores = id_tutor => {
-    MetodosAxios.obtener_formacion_tutor(id_tutor).then(res => {
-      console.log(res);
-      this.setState({
-        formacion_tutor: res.data,
-      }, () => {
-        console.log('this.state.formacion_tutor', this.state.formacion_tutor)
-        this.inicializar_formulario(this.state.usuario[0])
+  obtener_asignaturas_tutor = id_tutor => {
+    try {
+      MetodosAxios.obtener_asignaturas_tutor(id_tutor).then(res => {
+        console.log(res);
+        this.setState({
+          asignaturas_tutor: res.data,
+        }, () => {
+          console.log('this.state.asignaturas_tutor', this.state.asignaturas_tutor)
+          this.inicializar_formulario(this.state.usuario[0])
+        })
+      }).catch(err => {
+        message.error('Error al cargar las asignaturas del tutor');
+        console.log(err);
       })
-    }).catch(err => {
-      message.error('Error al cargar la Formacion del Tutor');
-    })
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  obtener_formacion_tutores = id_tutor => {
+    try {
+      MetodosAxios.obtener_formacion_tutor(id_tutor).then(res => {
+        console.log(res);
+        this.setState({
+          formacion_tutor: res.data,
+        }, () => {
+          console.log('this.state.formacion_tutor', this.state.formacion_tutor)
+          this.obtener_asignaturas_tutor(this.state.usuario[0]._id)
+        })
+      }).catch(err => {
+        message.error('Error al cargar la Formacion del Tutor');
+        console.log(err)
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   inicializar_formulario = usuario => {
-    console.log(this.state.formacion_tutor)
+    // console.log('this.state.formacion_tutor', this.state.formacion_tutor)
+    console.log('this.state.asignaturas_tutor', this.state.asignaturas_tutor)
+    let lista_nombre_asignaturas_tutor = [];
+    this.state.asignaturas_tutor.map(asignatura => {
+      lista_nombre_asignaturas_tutor.push(asignatura.nombre)
+    })
+    this.setState({ lista_nombre_asignaturas_tutor: lista_nombre_asignaturas_tutor })
+    console.log('lista_nombre_asignaturas_tutor', lista_nombre_asignaturas_tutor)
     this.props.form.setFieldsValue({
       nombres: usuario.nombre,
       apellidos: usuario.apellido,
@@ -51,24 +83,42 @@ class PerfilTutor extends React.Component {
       descripcion: usuario.presentacion,
       nivel_estudios: this.state.formacion_tutor[0].nivel_estudios,
       experiencia: this.state.formacion_tutor[0].experiencia,
+      profesion: this.state.formacion_tutor[0].profesion,
+      // asignaturas: lista_nombre_asignaturas_tutor,
     })
   }
 
   guardar_usuario = () => {
-    this.setState({
-      usuario: JSON.parse(localStorage.getItem('user')),
-    }, () => {
-      console.log('this.state.usuario', this.state.usuario)
-      this.obtener_formacion_tutores(this.state.usuario[0]._id)
-    });
+    let correo = JSON.parse(localStorage.getItem('user'))[0].correo;
+    console.log('correo', correo)
+    MetodosAxios.obtener_tutor(correo).then(res => {
+      // console.log(res)
+      this.setState({
+        usuario: res.data,
+      }, () => {
+        console.log('this.state.usuario', this.state.usuario)
+        this.obtener_formacion_tutores(this.state.usuario[0]._id)
+      })
+    })
+    // this.setState({
+    //   usuario: JSON.parse(localStorage.getItem('user')),
+    // }, () => {
+    //   console.log('this.state.usuario', this.state.usuario)
+    //   this.obtener_formacion_tutores(this.state.usuario[0]._id)
+    // });
   }
 
   obtener_asignaturas = () => {
-    MetodosAxios.obtener_asignaturas().then(res => {
-      this.setState({ asignaturas: res.data });
-    }).catch(err => {
-      message.error('Error al cargar las asignaturas')
-    })
+    try {
+      MetodosAxios.obtener_asignaturas().then(res => {
+        this.setState({ asignaturas: res.data });
+      }).catch(err => {
+        message.error('Error al cargar las asignaturas')
+        console.log(err)
+      })
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   componentDidMount = () => {
@@ -95,17 +145,39 @@ class PerfilTutor extends React.Component {
         fecha_nac: values.fecha_nac,
         presentacion: values.descripcion,
       }
+      let formacion_tutor = {
+        id_tutor: this.state.usuario[0]._id,
+        nivel_estudios: values.nivel_estudios,
+        experiencia: values.experiencia,
+        profesion: values.profesion
+      }
+
       console.log('envio usuario', usuario);
+      console.log('envio formacion tutor', formacion_tutor)
       MetodosAxios.editar_tutor(usuario).then(res => {
         console.log(res)
-        this.setState({ habilitarCampos: false })
-        message.success('Tutor editado exitosamente');
-        localStorage.setItem('user', usuario);
+        MetodosAxios.editar_formacion_tutor(formacion_tutor).then(res => {
+          console.log(res)
+          message.success('Tutor editado exitosamente');
+          message.success('Formacion Tutor editado exitosamente');
+          this.setState({ habilitarCampos: false })
+        }).catch(err => {
+          message.error('Error al editar formacion tutor')
+          console.log(err)
+        })
+        // this.setState({ habilitarCampos: false })
+        // message.success('Tutor editado exitosamente');
       }).catch(err => {
         message.error('Error al editar tutor')
         console.log(err);
       })
-      // this.setState({ loading: false, habilitarCampos: false });      
+      // MetodosAxios.editar_formacion_tutor(formacion_tutor).then(res => {
+      //   console.log(res)
+      // }).catch(err => {
+      //   message.error('Error al editar formacion tutor')
+      //   console.log(err)
+      // })
+
     });
   }
 
@@ -275,8 +347,8 @@ class PerfilTutor extends React.Component {
                       Tercer Nivel
                     </Option>
                     <Option
-                      key="Máster-Postgrado"
-                      value="Máster-Postgrado"
+                      key="Máster/Postgrado"
+                      value="Máster/Postgrado"
                     >
                       Máster-Postgrado
                     </Option>
@@ -332,10 +404,14 @@ class PerfilTutor extends React.Component {
                       required: true,
                       message: 'Por favor, seleccione la(s) asignaturas'
                     }
-                  ]
+                  ],
+                  initialValue: this.state.lista_nombre_asignaturas_tutor
                 })(
                   <Select
+                    allowSearch
+                    allowClear
                     disabled={!this.state.habilitarCampos}
+                    mode="multiple"
                   >
                     {
                       this.state.asignaturas &&

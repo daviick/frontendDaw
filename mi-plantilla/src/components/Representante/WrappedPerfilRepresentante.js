@@ -34,12 +34,23 @@ class PerfilRepresentante extends React.Component {
   }
 
   guardar_usuario = () => {
-    this.setState({
-      usuario: JSON.parse(localStorage.getItem('user')),
-    }, () => {
-      console.log('this.state.usuario', this.state.usuario)
-      this.inicializar_formulario(this.state.usuario[0])
-    });
+    let correo = JSON.parse(localStorage.getItem('user'))[0].correo;
+    console.log('correo', correo)
+    MetodosAxios.obtener_representante(correo).then(res => {
+      // console.log(res)
+      this.setState({
+        usuario: res.data,
+      }, () => {
+        console.log('this.state.usuario', this.state.usuario)
+        this.inicializar_formulario(this.state.usuario[0])
+      })
+    })
+    // this.setState({
+    //   usuario: JSON.parse(localStorage.getItem('user')),
+    // }, () => {
+    //   console.log('this.state.usuario', this.state.usuario)
+    //   this.inicializar_formulario(this.state.usuario[0])
+    // });
   }
 
   componentDidMount = () => {
@@ -53,7 +64,7 @@ class PerfilRepresentante extends React.Component {
         return;
       this.setState({ loading: true, habilitarCampos: true });
       console.log('Received values from', values);
-      values.fecha_nac =values.fecha_nac.toISOString().substring(0, 10)
+      values.fecha_nac = values.fecha_nac.toISOString().substring(0, 10)
       let usuario = {
         id: this.state.usuario[0]._id,
         nombre: values.nombres,
@@ -68,7 +79,7 @@ class PerfilRepresentante extends React.Component {
       MetodosAxios.editar_representante(usuario).then(res => {
         console.log(res)
         this.setState({ habilitarCampos: false })
-        message.success('Representante editado exitosamente');        
+        message.success('Representante editado exitosamente');
       }).catch(err => {
         message.error('Error al editar el Representante')
         console.log(err);
