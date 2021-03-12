@@ -9,7 +9,7 @@
     "customize-cra": "^0.2.14",
     "d3": "^5.11.0",
     "html2canvas": "^1.0.0-rc.3",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.3.1",
     "jspdf-autotable": "^3.2.4",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
